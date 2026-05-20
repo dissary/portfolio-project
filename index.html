@@ -4,14 +4,117 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>[insert name] Portifolio</title>
+  <title>Elijah's Portifolio</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/8b1486a8a7.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  Hello my name is Elijah.
-  <script src="script.js"></script>
+  <div id="header">
+    <div class="container">
+      <nav>
+        <img src="logo.png" class="logo">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-text">
+        <p>Full-Stack Web Developer</p>
+        <h1>Hi, I'm <span>Elijah</span> Chong<br>From Malaysia</h1>
+      </div>
+    </div>
+  </div>
+<!-- About Section -->
+  <div id="about">
+    <div class="container">
+      <div class="row">
+        <div class="about-col-1">
+          <img src="images/users.jpg">
+        </div>
+        <div class="about-col-2">
+          <h1 class="sub-title">About Me</h1>
+          <p>I was a cybersecurity diploma student at New Era Vocational College. 
+            After graduating, I worked at two tech companies and realized I needed to upskill to increase my value in the tech industry. 
+            I have always been interested in programming, so I decided to learn more about software development and joined Sigmaschool.
+            My goal is to become a full-stack developer capable of handling complex challenges across both front-end and back-end efficiently. 
+            I am currently seeking opportunities to grow my skills and contribute in local, overseas, remote, or hybrid environments.</p>
+
+            <div class="tab-titles">
+              <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+              <p class="tab-links" onclick="opentab('experience')">Experience</p>
+              <p class="tab-links" onclick="opentab('education')">Education</p>
+            </div>
+            <div class="tab-contents active-tab" id="skills">
+              <ul>
+                <li><span>Full Stack</span><br>Web Developer</li>
+                <li><span>Frontend Development</span><br>HTML/CSS/JavaScript</li>
+                <li><span>Backend Development</span><br>SQL</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="experience">
+              <ul>
+                <li><span>Aug 2023 - Apr 2024</span><br>IT Operation & Maintenance Engineer at Upnet Sdn Bhd</li>
+                <li><span>Nov 2025 - Feb 2026</span><br>Sales Technician at LEAF Smart Community</li>
+              </ul>
+            </div>
+            <div class="tab-contents" id="education">
+              <ul>
+                <li><span>2020 - 2023</span><br>Cybersecurity at New Era Vocational College</li>
+                <li><span>2026 - Present</span><br>Full-Stack Developer at Sigmaschool</li>
+              </ul>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Section -->
+<div class="services">
+  <div class="container">
+    <h1 class="sub-title">My Services</h1>
+    <div class="services-list">
+      <div>
+        <i class="fa-solid fa-code"></i>
+        <h2>Frontend Development</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eius dolores placeat, magnam eaque molestias consequuntur in ducimus quibusdam minima? Quas expedita quia id corporis praesentium. Quos, sapiente id. Velit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-server"></i>
+        <h2>Backend Development</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eius dolores placeat, magnam eaque molestias consequuntur in ducimus quibusdam minima? Quas expedita quia id corporis praesentium. Quos, sapiente id. Velit.</p>
+        <a href="#">Learn More</a>
+      </div>
+      <div>
+        <i class="fa-solid fa-computer"></i>
+        <h2>Full Stack Development</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt eius dolores placeat, magnam eaque molestias consequuntur in ducimus quibusdam minima? Quas expedita quia id corporis praesentium. Quos, sapiente id. Velit.</p>
+        <a href="#">Learn More</a>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname) {
+      for(tablink of tablinks) {
+        tablink.classList.remove("active-link");
+      }
+      for(tabcontent of tabcontents) {
+        tabcontent.classList.remove("active-tab");
+      }
+      event.currentTarget.classList.add("active-link");
+      document.getElementById(tabname).classList.add("active-tab");
+    }
+
+  </script>
 </body>
 
 </html>
-
