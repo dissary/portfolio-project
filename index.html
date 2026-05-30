@@ -14,13 +14,15 @@
     <div class="container">
       <nav>
         <img src="/images/logo.png" class="logo">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+        <ul id="sideMenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fa-solid fa-circle-xmark" onclick="closeMenu()"></i>
         </ul>
+        <i class="fa-solid fa-bars" onclick="openMenu()"></i>
       </nav>
       <div class="header-text">
         <p>Full-Stack Web Developer</p>
@@ -73,7 +75,7 @@
   </div>
 
   <!-- Services Section -->
-<div class="services">
+<div id="services">
   <div class="container">
     <h1 class="sub-title">My Services</h1>
     <div class="services-list">
@@ -102,7 +104,7 @@
 
 <!-- Portfolio Section -->
 
-<div class="portfolio">
+<div id="portfolio">
   <div class="container">
     <h1 class="sub-title">My Work</h1>
     <div class="work-list">
@@ -137,7 +139,7 @@
 
 <!-- Contact Section -->
 
-<div class="contact">
+<div id="contact">
   <div class="container">
     <div class="row">
       <div class="contact-left">
@@ -153,12 +155,13 @@
         <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
       </div>
       <div class="contact-right">
-        <form>
+        <form name="YOUR_FORM_NAME">
           <input type="text" name="Name" placeholder="Your Name" required>
           <input type="email" name="Email" placeholder="Your Email" required>
-          <textarea name="message" rows="6" placeholder="Your Message"></textarea>
+          <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
           <button type="submit" class="btn btn2">Submit</button>
         </form>
+        <span id="msg"></span>
       </div>
     </div>
   </div>
@@ -186,6 +189,37 @@
     }
 
   </script>
+
+  <script>
+
+    var sideMenu = document.getElementById("sideMenu");
+
+    function openMenu() {
+      sideMenu.style.right = "0";
+    }
+    function closeMenu() {
+      sideMenu.style.right = "-200px";
+    }
+
+  </script>
+
+<script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbzpmERezlgXTJ5GViihro8vK_X69VTlSaf5EUoM2Yt8Ylcb2vaZ6zv_A30RL-jEqv3r3g/exec'
+	const form = document.forms['YOUR_FORM_NAME']
+  const msg = document.getElementById("msg");
+
+	form.addEventListener('submit', e => {
+		e.preventDefault()
+		fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+			.then(response => {msg.innerHTML = "Message sent successfully."
+      setTimeout(function() {
+        msg.innerHTML = ""
+      }, 5000)
+      form.reset()
+    })
+			.catch(error => console.error('Error!', error.message))
+	})
+</script>
 </body>
 
 </html>
